@@ -28,7 +28,7 @@ TRACE_EVENT(sched_pelt_cfs,
 		__entry->cpu		= cpu;
 		strlcpy(__entry->path, path, PATH_SIZE);
 		__entry->load		= avg->load_avg;
-		__entry->rbl_load	= avg->runnable_load_avg;
+		__entry->rbl_load	= avg->runnable_avg;
 		__entry->util		= avg->util_avg;
 	),
 
@@ -53,7 +53,7 @@ DECLARE_EVENT_CLASS(sched_pelt_rq_template,
 	TP_fast_assign(
 		__entry->cpu		= cpu;
 		__entry->load		= avg->load_avg;
-		__entry->rbl_load	= avg->runnable_load_avg;
+		__entry->rbl_load	= avg->runnable_avg;
 		__entry->util		= avg->util_avg;
 	),
 
@@ -96,7 +96,7 @@ TRACE_EVENT(sched_pelt_se,
 		strlcpy(__entry->comm, comm, TASK_COMM_LEN);
 		__entry->pid		= pid;
 		__entry->load		= avg->load_avg;
-		__entry->rbl_load	= avg->runnable_load_avg;
+		__entry->rbl_load	= avg->runnable_avg;
 		__entry->util		= avg->util_avg;
 	),
 
